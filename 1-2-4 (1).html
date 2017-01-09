@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>1.2.4、data 必须是函数</title>
+</head>
+<body>
+<div id="app">
+  	<my-component></my-component>
+  	<my-component></my-component>
+  	<my-component></my-component>
+</div>	
+
+<script type="text/javascript" src="vue.js"></script>
+<script type="text/javascript">
+	Vue.component('my-component', {
+	  	template: '<button v-on:click = "count++">{{count}}</button>',
+	  	data:function(){
+	  		return {count:0}
+	  	}
+	})
+
+	new Vue({
+	  	el: '#app'
+	})
+</script>
+</body>
+</html>
+
+<!-- 
+我们可以通过为每个组件返回新的 data 对象来解决上一个例子的问题：
+ -->

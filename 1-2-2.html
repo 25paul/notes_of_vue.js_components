@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>1.2.2、局部注册</title>
+</head>
+<body>
+<div id="example">
+  	<my-component></my-component>
+</div>	
+
+<script type="text/javascript" src="vue.js"></script>
+<script type="text/javascript">
+	var child = {
+		template:'<div>Hello Vue.js</div>'
+	}
+
+	new Vue({
+	  	el: '#example',
+	  	components:{
+	  		'my-component':child
+	  	}
+	})
+</script>
+</body>
+</html>
+
+<!-- 
+通过使用组件实例选项注册，可以使组件仅在另一个实例/组件的作用域中可用.
+
+这种封装也适用于其它可注册的 Vue 功能，如指令。
+ -->

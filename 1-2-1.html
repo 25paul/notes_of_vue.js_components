@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>1.2.1、注册</title>
+</head>
+<body>
+<div id="example">
+  	<my-component></my-component>
+</div>	
+
+<script type="text/javascript" src="vue.js"></script>
+<script type="text/javascript">
+	// 注册
+	Vue.component('my-component', {
+	  	template: '<div>A custom component!</div>'
+	})
+
+	// 创建根实例
+	new Vue({
+	  	el: '#example'
+	})
+</script>
+</body>
+</html>
+
+<!-- 
+会被渲染为：
+<div id="example">
+  	<div>A custom component!</div>
+</div>
+ -->

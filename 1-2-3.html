@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>1.2.3、DOM 模版解析说明</title>
+</head>
+<body>
+<!-- <table id="example">
+	<my-component></my-component>
+</table> -->
+
+<table id="example">
+	<tr is='my-component'></tr>
+</table>
+  	
+<script type="text/javascript" src="vue.js"></script>
+<script type="text/javascript">
+	Vue.component('my-component', {
+	  	template: '<div>is 属性!</div>'
+	})
+
+	new Vue({
+	  	el: '#example'
+	})
+</script>
+</body>
+</html>
+
+<!-- 
+在自定义组件中使用这些受限制的元素时会导致一些问题。自定义组件 <my-row>被认为是无效的内容，因此在渲染的时候会导致错误。变通的方案是使用特殊的 is 属性。
+
+不过，如果是挂载最div上，里面是table就没事。
+ -->
