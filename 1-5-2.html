@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>1.5.2、单个 Slot</title>
+</head>
+<body>
+<div id="app">
+  	<h1>我是父组件的标题</h1>
+  	<child-component>
+    	<p>这是一些初始内容</p>
+    	<p>这是更多的初始内容</p>
+  	</child-component>
+</div>	
+
+<script type="text/javascript" src="vue.js"></script>
+<script type="text/javascript">
+	Vue.component('child-component', {
+	  	template: '	<div>\
+	  					<h2>我是子组件的标题</h2>\
+	  				</div>'
+	})
+
+	new Vue({
+	  	el: '#app'
+	})
+</script>
+</body>
+</html>
+
+<!-- 
+除非子组件模板包含至少一个 <slot> 插口，否则父组件的内容将会被丢弃。
+ -->

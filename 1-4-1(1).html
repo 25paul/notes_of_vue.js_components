@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>1.4.1、使用 v-on 绑定自定义事件</title>
+</head>
+<body>
+<div id="app">
+	<p>{{totle}}</p>
+  	<my-button v-on:click="mainAdd"></my-button>
+  	<my-button v-on:click.native="mainAdd"></my-button>
+</div>	
+
+<script type="text/javascript" src="vue.js"></script>
+<script type="text/javascript">
+	Vue.component('my-button', {
+	  	template: '<button v-on:click = "add">{{count}}</button>',
+	  	data:function(){
+	  		return {
+	  			count:0
+	  		}
+	  	},
+	  	methods:{
+	  		add:function(){
+	  			this.count++
+	  			this.$emit("add_1")
+	  		}
+	  	}
+	})
+
+	new Vue({
+	  	el: '#app',
+	  	data:{
+	  		totle:0
+	  	},
+	  	methods:{
+	  		mainAdd:function(){
+	  			this.totle++
+	  		}
+	  	}
+	})
+</script>
+</body>
+</html>

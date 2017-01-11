@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>1.4.2、使用自定义事件的表单输入组件</title>
+</head>
+<body>
+<div id="app">
+  	<currency-input v-model="price"></currency-input>
+  
+  	<p>Total: ${{ price }}</p>
+</div>
+
+<script type="text/javascript" src="vue.js"></script>
+<script type="text/javascript">
+Vue.component('currency-input', {
+  template: '<input ref="input" v-bind:value="label" v-on:input="updateValue($event.target.value)"></input>',
+  props:{
+    label: {
+        type: Number,
+        default: 0
+    }
+  },
+  methods:{
+    updateValue: function (val) {
+      alert(1)
+      this.$refs.input.value = val
+      this.$emit('input',val)
+    }
+  }
+})
+
+new Vue({
+  el: '#app',
+  data: {
+    price: ''
+  }
+})
+</script>
+</body>
+</html>
+
+<!-- 
+上一个例子的简化版
+ -->

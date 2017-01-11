@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>1.5.4、作用域插槽</title>
+</head>
+<body>
+<div id="app">
+  	<h1>我是父组件的标题</h1>
+  	<child-component :items='items'>
+  		<template scope = 'props'>
+  			<li>{{props.text}}</li>
+  		</template>
+    	
+  	</child-component>
+</div>	
+
+<script type="text/javascript" src="vue.js"></script>
+<script type="text/javascript">
+	Vue.component('child-component', {
+	  	template: '	<ul>\
+	  					<slot v-for="item in items" :text="item.content"></slot>\
+	  				</ul>',
+	  	props:['items']
+	})
+
+	new Vue({
+	  	el: '#app',
+	  	data:function(){
+	  		return {
+	  			items:[
+		  			{content:'vue'},
+		  			{content:'react'},
+		  			{content:'angular'}
+		  		]
+	  		}
+	  		
+	  	} 	
+	})
+</script>
+</body>
+</html>
+

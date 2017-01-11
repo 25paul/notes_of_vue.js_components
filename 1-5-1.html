@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>1.5.1、编译作用域</title>
+</head>
+<body>
+<div id="app">
+  	<child-component></child-component>
+</div>	
+
+<script type="text/javascript" src="vue.js"></script>
+<script type="text/javascript">
+	Vue.component('child-component', {
+	  	// 有效，因为是在正确的作用域内
+	  	template: '<div v-show="someChildProperty">Child</div>',
+  		data: function () {
+    		return {
+      			someChildProperty: true
+   			}
+	  	}
+	})
+
+	new Vue({
+	  	el: '#app',
+	  	data:{
+	  		message:'hello vue'
+	  	}
+	})
+</script>
+</body>
+</html>
+
+<!-- 
+<child-component v-show="someChildProperty"></child-component>
+在父组件模板内将一个指令绑定到子组件的属性/方法。这样是无效的
+ -->
+
